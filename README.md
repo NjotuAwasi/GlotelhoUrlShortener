@@ -36,3 +36,5 @@ DB_PASSWORD=(put your db password here)
 - if we want to see the stats of the url. we can call the GET method with the shortcode that was generated `696da8`. this request is `GET /api/stats/{short_code}`. 
 - Lets call in on the glotelho url we shortened. we get the results below
 ![stats](image-3.png)
+
+## core functionality is complete at this point.
