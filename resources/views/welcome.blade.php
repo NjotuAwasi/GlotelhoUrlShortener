@@ -79,7 +79,6 @@
 
                 //display the link once the url is shortened
                 document.getElementById('result').style.display = 'block';
-                console.log(response);
             }).catch(error=>console.error('Error: ', error))
 
         });
