@@ -52,7 +52,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 
+    <script>
 
+        //we add a listener for when the submit button is clicked
+        document.getElementById('shorten').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            //we get the value from the input the user filled in the form
+            const originalUrl = document.getElementById('original_url').value;
+
+            //we pass the value to the post route we created in web.php
+            //we must add csrf token as it is required by laravel
+            fetch('{{ route("url.short") }}' , {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({original_url: originalUrl})
+                //we receive the response to json and get the short url from the controller
+            }).then(response => response.json()).then(data=>{
+                const shortUrlElement = document.getElementById('short_url');
+                shortUrlElement.href = data.short_url;
+                shortUrlElement.textContent = data.short_url;
+
+                //display the link once the url is shortened
+                document.getElementById('result').style.display = 'block';
+                console.log(response);
+            }).catch(error=>console.error('Error: ', error))
+
+        });
+    </script>
 </body>
 
 </html>
