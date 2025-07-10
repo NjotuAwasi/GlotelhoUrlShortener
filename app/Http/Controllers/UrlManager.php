@@ -30,7 +30,46 @@ class UrlManager extends Controller
             $url->save();
         }
         return response()->json([
-            'short_url' => url(path:'/').'/'.$shortCode, 'original_url'.$url, 'short_code'.$shortCode
+            'short_url' => url(path:'/').'/'.$shortCode,
+            'original_url' => $url,
+            'short_code' => $shortCode
         ]);
+    }
+
+    //this function is used to redirect the short url to the original url
+    function redirectToOriginalUrl($code){
+
+        //we first find the url in the database
+        $url = Url::where("short_code", $code)->first();
+
+        //if the url does not exist we throw a 404 error
+        if(!$url){
+            abort(404);
+        }
+
+        //this is to increment the click count by one and then redirect to the original url
+        $url->increment('click_count');
+        return redirect($url->original_url);
+
+    }
+
+    //this function is to return the stats of the url in json format
+    function stats($code){
+
+         //we first find the url in the database
+        $url = Url::where("short_code", $code)->first();
+
+        //if the url does not exist we throw a 404 error
+        if(!$url){
+            abort(404);
+        }
+        // return a json with url stats
+        return response()->json([
+            'original_url'=> $url->original_url,
+            'short_code' => $url->short_code,
+            'click count' => $url->click_count,
+            'Created at' => $url->created_at
+        ]);
+
     }
 }
