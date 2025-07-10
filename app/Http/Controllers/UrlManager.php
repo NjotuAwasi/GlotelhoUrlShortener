@@ -15,7 +15,7 @@ class UrlManager extends Controller
         //this line is to check if the url actually exists and gives the result to the variable $url
         $url = Url::where("original_url", $request->original_url)->first();
 
-        //This code block will run if the url dose not exist
+        //This code block will run if the url dose not already exist in the database
         if(!$url){
 
             //we generete a shortcode from the "generateShortcode" function in the URL model
