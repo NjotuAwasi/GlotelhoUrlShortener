@@ -68,3 +68,15 @@ DB_PASSWORD=(put your db password here)
 ![stats](image-3.png)
 
 ## core functionality is complete at this point.
+
+## Bonus features added
+
+#### Feature tests were added (`tests/Feature/UrlShortenerTest.php`)
+- Test check if the url can create a shortcode
+- Test to check if a short url can redirect to original url
+- test to check if we can get the stats of a url
+- test to make sure a valid url is used
+
+run the command `php artisan test` in the terminal. the results should be something like the image below
+
+![alt text](image-4.png)

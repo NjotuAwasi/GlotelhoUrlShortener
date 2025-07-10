@@ -10,7 +10,7 @@ class UrlManager extends Controller
     //this function is used to create the short URL
     function createShortUrl(Request $request){
         //original url is required
-        $request->validate(['original_url'=>'required']);
+        $request->validate(['original_url'=>'required|url']);
 
         //this line is to check if the url actually exists and gives the result to the variable $url
         $url = Url::where("original_url", $request->original_url)->first();
