@@ -3,6 +3,36 @@
 
 This application builds a URL shortener application using Laravel
 
+## 🚀 Features
+- Generate a unique 6 character short URL.
+- Store original URLs and track clicks.
+- View statistics (click count, creation date).
+- JSON API responses for integration.
+- Simple Bootstrap based frontend.
+
+### folder structure of important files
+```
+├── app/
+│   └── Models/Url.php
+│   └── Http/Controllers/UrlManager.php
+├── database/migrations/
+│   └── 2025_07_10_012544.urls.php
+├── routes/web.php
+├── resources/views/welcome.blade.php
+├── public/
+├── .env.example
+├── README.md
+```
+
+### Requirements
+
+- Laravel (latest stable version preferred)
+
+- Requires PHP 8.x or later
+
+- A server to run php code eg XAMPP
+
+
 ### Please follow the steps below
 
 - install xampp in your computer. For example in the C drive `C/XAMPP`

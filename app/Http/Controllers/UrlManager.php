@@ -67,8 +67,8 @@ class UrlManager extends Controller
         return response()->json([
             'original_url'=> $url->original_url,
             'short_code' => $url->short_code,
-            'click count' => $url->click_count,
-            'Created at' => $url->created_at
+            'click_count' => $url->click_count,
+            'Created_at' => $url->created_at
         ]);
 
     }

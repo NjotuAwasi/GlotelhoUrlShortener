@@ -29,7 +29,7 @@
                         <form id="shorten">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Enter url you wish to shorten</label>
-                                <input type="url" class="form-control" id="original_url" aria-describedby="emailHelp" placeholder="https://example.com">
+                                <input required type="url" class="form-control" id="original_url" aria-describedby="emailHelp" placeholder="https://example.com">
                                 <small id="urlHelp" class="form-text text-muted">Please make sure to enter a valid link</small>
                             </div>
 
