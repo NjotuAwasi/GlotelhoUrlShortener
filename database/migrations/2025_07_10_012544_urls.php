@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('original_url');
             $table->string('short_code')->unique();
             $table->unsignedBigInteger('click_count')->default(0);
-            $table->timestamps('created_at');
+            $table->timestamps();
         });
 
     }
