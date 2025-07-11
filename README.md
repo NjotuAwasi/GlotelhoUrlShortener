@@ -20,6 +20,7 @@ This application builds a URL shortener application using Laravel
 ├── routes/web.php
 ├── resources/views/welcome.blade.php
 ├── public/
+├── tests/Feature/UrlShortenerTest.php
 ├── .env.example
 ├── README.md
 ```
